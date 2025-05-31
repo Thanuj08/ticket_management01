@@ -63,55 +63,47 @@
 
     <div class="page">
         <!-- HeaderNavbar -->
-        <header class="navbar navbar-expand-md d-print-none" >
-          <div class="container-xl">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-              <a href=".">
-                <img src="{% static 'table/static/img2.png' %}" width="110" height="32" alt="Tabler" class="navbar-brand-image">
-              </a>
-              Ticket Tracking
-            </h1>
-            <div class="navbar-nav flex-row order-md-last">
-              <div class="nav-item d-none d-md-flex me-3">
-                
-              </div>
-              <div class="d-none d-md-flex p-3">
-                <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" data-bs-toggle="tooltip"
-             data-bs-placement="bottom">
-                  <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg>
-                </a>
-                <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode" data-bs-toggle="tooltip"
-             data-bs-placement="bottom">
-                  <!-- Download SVG icon from http://tabler-icons.io/i/sun -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>
-                </a>
-              </div>
-
-              <div class="nav-item dropdown">
-                <a href="#" 
-                   class="nav-link d-flex lh-1 text-reset p-0" 
-                   data-bs-toggle="dropdown" 
-                   aria-label="Open user menu">
-                    <span class="avatar avatar-sm" 
-                          style="background-image: url('{% static "table/static/avatars/blank.png" %}')">
-                    </span>
-                    <div class="d-none d-xl-block ps-2">
-                        <div>{{request.user.username}}</div>
-                        <div class="mt-1 small text-secondary">{{request.user.email}}</div>
-                    </div>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <a href="" class="dropdown-item">Logout</a>
-                </div>
-            </div>
-            
-            </div>
-          </div>
-        </header>
+        <header class="navbar navbar-expand-md d-print-none shadow-sm" style="background: linear-gradient(90deg, #4b6cb7, #182848); color: white;">
+					<div class="container-xl">
+						<button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+				
+						<h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3 mb-0">
+							<a href="." class="d-flex align-items-center text-white text-decoration-none">
+								<img src="{% static 'table/static/img2.png' %}" width="110" height="32" alt="Logo" class="navbar-brand-image me-2">
+								<span style="font-weight: 600; font-size: 20px;">Ticket Tracking</span>
+							</a>
+						</h1>
+				
+						<div class="navbar-nav flex-row order-md-last align-items-center">
+							<!-- Theme Toggle -->
+							<div class="d-none d-md-flex p-2">
+								<a href="?theme=dark" class="nav-link text-white px-2" title="Enable dark mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
+									<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" stroke="currentColor" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke="none" d="M0 0h24v24H0z"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
+								</a>
+								<a href="?theme=light" class="nav-link text-white px-2" title="Enable light mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
+									<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" stroke="currentColor" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke="none" d="M0 0h24v24H0z"/><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/></svg>
+								</a>
+							</div>
+				
+							<!-- User Menu -->
+							<div class="nav-item dropdown">
+								<a href="#" class="nav-link d-flex lh-1 text-white p-0 align-items-center" data-bs-toggle="dropdown" aria-label="Open user menu">
+									<span class="avatar avatar-sm me-2" style="background-image: url('{% static "table/static/avatars/blank.png" %}'); border: 2px solid #fff;"></span>
+									<div class="d-none d-xl-block ps-1">
+										<div class="fw-semibold">{{ request.user.username }}</div>
+										<div class="small text-light">{{ request.user.email }}</div>
+									</div>
+								</a>
+								<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+									<a href="" class="dropdown-item">Logout</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</header>
+				
         <!-- Navbar -->
 		 {% include 'header.html' %}
 
@@ -145,27 +137,37 @@
                 {% endblock %}				
 			  </div>
 			</div>
-			<footer class="footer footer-transparent d-print-none">
-			  <div class="container-xl">
-				<div class="row text-center align-items-center flex-row-reverse">
-				  <div class="col-lg-auto ms-lg-auto">
-					<ul class="list-inline list-inline-dots mb-0">
-						<li class="list-inline-item">
-							<span class="text-gray-400 fw-semibold me-1">Powered by</span>
-							<a href="https://inesssolutions.com" target="_blank" class="text-muted text-hover-primary fw-semibold me-2 fs-6">InESS Solutions, inc.</a>
-						</li>
-					</ul>
-				  </div>
-				  <div class="col-12 col-lg-auto mt-3 mt-lg-0">
-					<ul class="list-inline list-inline-dots mb-0">
-					  <li class="list-inline-item">
-						<a href="https://inesssolutions.com" target="_blank" class="menu-link px-2">Ticket Tracking Version 1.0</a>
-					  </li>
-					</ul>
-				  </div>
+			<footer class="footer footer-transparent d-print-none" style="background: linear-gradient(90deg, #4b6cb7, #182848); color: white;">
+				<div class="container-xl">
+					<div class="row text-center align-items-center flex-row-reverse">
+						
+						<!-- Right Side -->
+						<div class="col-lg-auto ms-lg-auto">
+							<ul class="list-inline list-inline-dots mb-0">
+								<li class="list-inline-item">
+									<span class="fw-semibold me-1" style="color: #e0e0e0;">Powered by</span>
+									<a href="https://inesssolutions.com" target="_blank" class="fw-semibold me-2 text-decoration-none" style="color: #f1f1f1; transition: color 0.3s;">
+										InESS Solutions, Inc.
+									</a>
+								</li>
+							</ul>
+						</div>
+			
+						<!-- Left Side -->
+						<div class="col-12 col-lg-auto mt-3 mt-lg-0">
+							<ul class="list-inline list-inline-dots mb-0">
+								<li class="list-inline-item">
+									<a href="https://inesssolutions.com" target="_blank" class="menu-link px-2 text-decoration-none" style="color: #f1f1f1; transition: color 0.3s;">
+										Ticket Tracking Version 1.0
+									</a>
+								</li>
+							</ul>
+						</div>
+			
+					</div>
 				</div>
-			  </div>
 			</footer>
+			
 		  </div>
 
 		
