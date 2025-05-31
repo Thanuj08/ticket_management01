@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="mb-4"><i class="bi bi-clock-history me-2"></i>Your Ticket History</h2>
+
+    {% if tickets %}
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for ticket in tickets %}
+                <div class="col">
+                    <div class="card shadow border-0 h-100">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0 text-primary">
+                                <i class="bi bi-ticket-detailed-fill me-2"></i>{{ ticket.title }}
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-1"><strong>Description:</strong> {{ ticket.description }}</p>
+                            <p class="mb-1"><strong>Priority:</strong> 
+                                <span class="badge bg-warning text-dark">{{ ticket.priority }}</span>
+                            </p>
+                            <p class="mb-1"><strong>Department:</strong> {{ ticket.department }}</p>
+                            <p class="mb-1"><strong>Location:</strong> {{ ticket.location }}</p>
+                            <p class="mb-1"><strong>Status:</strong> 
+                                {% if ticket.status == "Open" %}
+                                    <span class="badge bg-success">{{ ticket.status }}</span>
+                                {% elif ticket.status == "Closed" %}
+                                    <span class="badge bg-secondary">{{ ticket.status }}</span>
+                                {% else %}
+                                    <span class="badge bg-info text-dark">{{ ticket.status }}</span>
+                                {% endif %}
+                            </p>
+                            <p class="text-muted small mt-2">Created by <strong>{{ ticket.created_by.username }}</strong> on {{ ticket.created_at|date:"Y-m-d H:i" }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info mt-4" role="alert">
+            <i class="bi bi-info-circle me-1"></i> No tickets found.
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}
